@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="single__page">
+                <div class="container">
+                    <div class="card">
+                        <div class="photo">
+                            <img src="{{ doctor.photo.url }}" alt="">
+                        </div>
+                        <div class="content">
+                            <p><span>To'liq ismi: </span> {{ doctor.get_full_name }} </p>
+                            <p><span>Mutaxassisligi: </span> {{ doctor.bolim }} </p>
+                            <p><span>Ish joyi: </span> {{ doctor.shifoxona.nomi }} </p>
+                            <p><span>Telefon:</span> {{ doctor.telefon }} </p>
+                            <p><span>Ko'rik narxi:</span> {% if doctor.korik_narxi == 0 %}Bepul {% else %}{{ doctor.korik_narxi }} so'm{% endif %} </p>
+                            <p><span>Ish vaqti:</span> {{ doctor.ish_vaqti }} </p>
+                            <p><span>Qo'chimcha ma'lumot:</span> {{ doctor.bio }} </p>
+                            <p><span>Ma'lumot joylangan sana: </span> {{ doctor.created_at }} </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+{% endblock content %}

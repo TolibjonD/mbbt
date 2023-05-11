@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<section class="landing__page">
+    <div class="content">
+        <h1>Namangan viloyatidagi <span>shifoxonalar.</span></h1>
+        <p>Namangan viloyatida joylashgan barcha turdagi shifoxonalar haqida ma'lumotlar va doktor qabuliga
+            yozilish xizmatlaridan bepul foydalaning. Xizmat turlari , ish vaqti va narxlari bilan
+            tanishing.
+        </p>
+        <p>Bu orqali siz gavjum ochirtlarda asablaringiz va vaqtingizni tejagan bo'lasiz shuningdek
+            o'zingizga
+            mos doktor va qulay shifoxona topish, harajatlaringiz haqida oldindan ma'lumot olish
+            imkoniyatiga
+            ega bo'lasiz. </p>
+        <a href="#" class="btn">Shifoxonalar <i class="fa-solid fa-arrow-right fa-beat" style="color: #ffffff;"></i></a>
+    </div>
+    <div class="photo">
+        <img src="{% static 'images/main_page.jpg' %}" alt="">
+    </div>
+</section>
+
+<section class="contact" id="contact">
+    <h1>Biz bilan aloqa</h1>
+    {% if error %}
+    <div class="error">
+        <p> {{ error }} </p>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div class="success">
+        <p> {{ success }} </p>
+    </div>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Ismingiz" name="name">
+        <input type="tel" placeholder="Telefon" name="tel">
+        <textarea name="message" placeholder="Qo'chimcha ma'lumot. Manzil"></textarea>
+        <button type="submit" class="btn">Yuborish</button>
+    </form>
+</section>
+{% endblock content %}

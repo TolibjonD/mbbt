@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+
+ <section class="doctors" id="doctors">
+                <h1>Shifoxonalar - {{ count }}</h1>
+                {% if hospitals %}
+                
+                <div class="container">
+                    {% for hospital in hospitals %}
+                    <div class="card">
+                        <div class="photo">
+                            <img src="{{ hospital.photo.url }}" alt="">
+                        </div>
+                        <div class="content">
+                            <h5> {{ hospital.nomi }} </h5>
+                            <p class="pp">{{ hospital.tuman }} - <span> <i class="fa-solid fa-star"></i></span></p>
+                            <p> {{ hospital.ish_vaqti }} <i class="fa-solid fa-clock"></i></p>
+                            <a href="{% url 'hospital:detail' hospital.id %}" class="btn">Batafsil</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <h1>No hospitals found.</h1>
+                {% endif %}
+</section>
+
+
+{% endblock content %}

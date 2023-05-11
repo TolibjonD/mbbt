@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <section class="single__page">
+                <div class="container">
+                    <div class="card">
+                        <div class="photo">
+                            <img src="{{ hospital.photo.url }}" alt="">
+                        </div>
+                        <div class="content">
+                            <p><span>Nomi: </span> {{ hospital.nomi }} </p>
+                            <p><span>Tuman: </span> {{ hospital.tuman }} </p>
+                            <p><span>Hodimlar soni: </span> {{ hospital.ishchilar_soni }} </p>
+                            <p><span>Telefon:</span> {{ hospital.telefon }} </p>
+                            <p><span>Yotib davlonish joyi:</span> {{ hospital.yotoq_joyi }} </p>
+                            <p><span>Ish vaqti:</span> {{ hospital.ish_vaqti }} </p>
+                            <p><span>Mutaxassisliklar:</span> 
+                                {% for category in hospital.categories.all %}
+                                {% if forloop.first %}
+                                {{ category.nomi }} ,
+                                {% else %}
+                                {{ category.nomi }} .
+                                {% endif %}
+                                {% endfor %} </p>
+
+                            <p><span>Mavjud doktorlar:</span> 
+                            {% for doctor in hospital.doctors.all %}
+                            <div class="doctors__list">
+                                <div class="photo_d">
+                                    <img src="{{ doctor.photo.url }}" alt="">
+                                    <h5> {{ doctor.ismi }} </h5>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            </p>
+                            <p><span>Ma'lumot joylangan sana: </span> {{ hospital.created_at }} </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+{% endblock content %}

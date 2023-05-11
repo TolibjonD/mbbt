@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<section class="contact" id="contact">
+    <h1>Biz bilan aloqa</h1>
+    {% if error %}
+    <div class="error">
+        <p> {{ error }} </p>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div class="success">
+        <p> {{ success }} </p>
+    </div>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <input type="text" placeholder="Ismingiz" name="name">
+        <input type="tel" placeholder="Telefon" name="tel">
+        <textarea name="message" placeholder="Qo'chimcha ma'lumot. Manzil"></textarea>
+        <button type="submit" class="btn">Yuborish</button>
+    </form>
+</section>
+
+{% endblock content %}
