@@ -5,11 +5,11 @@
  <section class="doctors" id="doctors">
                 {% if doctors %}
                 
-                {% for doctor in doctors %}
+                
                 
                 <h1>Doktorlar</h1>
                 <div class="container">
-
+                    {% for doctor in doctors %}
                     <div class="card">
                         <div class="photo">
                             <img src="{{ doctor.photo.url }}" alt="">
@@ -23,9 +23,10 @@
                             <a href="{% url 'hospital:detail-d' doctor.id %}" class="btn">Batafsil</a>
                         </div>
                     </div>
+                    {% endfor %}
                 </div>
                 
-                {% endfor %}
+                
 
                 {% else %}
                 <h1>No doctors found.</h1>
