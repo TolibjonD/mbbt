@@ -25,14 +25,16 @@
                                 {% endfor %} </p>
 
                             <p><span>Mavjud doktorlar:</span> 
-                            {% for doctor in hospital.doctors.all %}
+                            
                             <div class="doctors__list">
+                                {% for doctor in hospital.doctors.all %}
                                 <div class="photo_d">
                                     <img src="{{ doctor.photo.url }}" alt="">
                                     <h5> {{ doctor.ismi }} </h5>
                                 </div>
+                                {% endfor %}
                             </div>
-                            {% endfor %}
+                            
                             </p>
                             <p><span>Ma'lumot joylangan sana: </span> {{ hospital.created_at }} </p>
                         </div>
